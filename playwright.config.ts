@@ -30,6 +30,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    /* Custom attribute to be used in page.getByTestId(testId). data-testid is used by default. */
+    testIdAttribute: 'data-pw',
   },
 
   /* Configure projects for major browsers */
