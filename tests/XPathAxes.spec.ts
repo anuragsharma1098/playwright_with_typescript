@@ -57,12 +57,12 @@ test.describe('XPath Axes Examples - Playwright TypeScript', () => {
       '//div[contains(@class, "mw-wiki-logo")]/following-sibling::*[1]'
     );
     
-// Guard against missing nodes
-  const count = await followingTab.count();
-  if (count === 0) {
-    console.log('No following sibling found for the logo container.');
-    return;
-  }
+    // Guard against missing nodes
+    const count = await followingTab.count();
+    if (count === 0) {
+      console.log('No following sibling found for the logo container.');
+      return;
+    }
 
     const tagName = await followingTab.evaluate((el) => el.tagName);
     console.log(`Following sibling tag: ${tagName}`);
@@ -111,41 +111,41 @@ test.describe('XPath Axes Examples - Playwright TypeScript', () => {
     console.log(`Complex XPath found ${complexCount} elements`);
   });
 
-//   test('Practical Example - Navigate through page structure', async ({ page }) => {
-//     // Get the search input
-//     const searchInput = page.locator('//input[@id="searchInput"]');
+  test('Practical Example - Navigate through page structure', async ({ page }) => {
+    // Get the search input
+    const searchInput = page.locator('//input[@id="searchInput"]');
     
-//     // Navigate to its parent form
-//     const parentForm = page.locator('//input[@id="searchInput"]/parent::form');
-//     const formId = await parentForm.getAttribute('id');
-//     console.log(`Parent form ID: ${formId}`);
+    // Navigate to its parent div (Wikipedia doesn't have a form parent for searchInput)
+    const parentDiv = page.locator('//input[@id="searchInput"]/parent::div');
+    const divClass = await parentDiv.getAttribute('class');
+    console.log(`Parent div class: ${divClass}`);
 
-//     // Get all siblings of the search input
-//     const siblings = page.locator('//input[@id="searchInput"]/parent::*/child::*');
-//     const siblingCount = await siblings.count();
-//     console.log(`Total siblings (including self): ${siblingCount}`);
+    // Get all siblings of the search input
+    const siblings = page.locator('//input[@id="searchInput"]/parent::*/child::*');
+    const siblingCount = await siblings.count();
+    console.log(`Total siblings (including self): ${siblingCount}`);
 
-//     // Get the closest div ancestor
-//     const closestDiv = page.locator('//input[@id="searchInput"]/ancestor::div[1]');
-//     const divClass = await closestDiv.getAttribute('class');
-//     console.log(`Closest div ancestor class: ${divClass}`);
+    // Get the closest div ancestor
+    const closestDiv = page.locator('//input[@id="searchInput"]/ancestor::div[1]');
+    const divId = await closestDiv.getAttribute('id');
+    console.log(`Closest div ancestor id: ${divId}`);
 
-//     expect(searchInput).toBeDefined();
-//   });
+    expect(searchInput).toBeDefined();
+  });
 
-//   test('XPath Axes - Table Navigation Example', async ({ page }) => {
-//     // Go to a page with tables
-//     await page.goto('https://testautomationpractice.blogspot.com/');
+  test('XPath Axes - Table Navigation Example', async ({ page }) => {
+    // Go to a page with tables
+    await page.goto('https://testautomationpractice.blogspot.com/');
 
-//     // Example: Select all cells in a row
-//     // Find a table cell, then select all following cells in same row
-//     const rowCells = page.locator("//td[normalize-space()='Learn JS']/following-sibling::td")
-//     const cellCount = await rowCells.count();
-//     console.log(`Cells following first data cell: ${cellCount}`);
+    // Example: Select all cells in a row
+    // Find a table cell, then select all following cells in same row
+    const rowCells = page.locator("//td[normalize-space()='Learn JS']/following-sibling::td")
+    const cellCount = await rowCells.count();
+    console.log(`Cells following first data cell: ${cellCount}`);
 
-//     // Select parent row from a cell
-//     const parentRow = page.locator("//td[normalize-space()='Learn JS']/parent::tr");
-//     const rowChildCount = await parentRow.locator('child::td').count();
-//     console.log(`Total cells in parent row: ${rowChildCount}`);
-//   });
+    // Select parent row from a cell and count all td children
+    const parentRow = page.locator("//td[normalize-space()='Learn JS']/parent::tr");
+    const rowChildCount = await parentRow.locator("//td").count();
+    console.log(`Total cells in parent row: ${rowChildCount}`);
+  });
 });
