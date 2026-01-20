@@ -6,7 +6,8 @@ test('Auto-suggest drop-down functionality', async ({ page }) => {
     await page.locator('input[name="q"]').fill('smart');
     await page.waitForTimeout(8000); // wait for suggestions to load
 
-    // get all the suggested options -->ctrl+shipt+p on DOM --> emulate focused page
+    // get all the suggested options -->ctrl+shipt+p on DOM --> emulate focused page 
+    // do not emulate focused page
     const suggestions: Locator = page.locator("ul>li");
     const suggestionCount = await suggestions.count();
 
