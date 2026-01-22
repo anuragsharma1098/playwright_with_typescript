@@ -1,20 +1,25 @@
-/* 
+/**
+ * CSS Locators Test Suite
+ * 
+ * Comprehensive tests for CSS locator strategies in Playwright
+ * 
+ * CSS Locator Types:
+ * 1. Absolute CSS locators - Full path from root element
+ * 2. Relative CSS locators - Partial paths starting from context element
+ * 
+ * CSS Selector Patterns:
+ * - ID selector: #id or tag#id
+ * - Class selector: .class or tag.class
+ * - Attribute selector: [attr=value] or tag[attr=value]
+ * - Combined: tag.class[attr=value]
+ * 
+ * Relationship Selectors:
+ * - Child: parent > child
+ * - Descendant: parent descendant
+ * - Sibling: element ~ sibling
+ * - Adjacent sibling: element + sibling
+ */
 
-CSS (Cascading Style Sheets) Locators
-
-html + js + css
-
-2 types of CSS locators:
-
-1. Absolute CSS locators  
-2. Relative CSS locators
- 
-tag with id || tag#id or #id
-tag with class || tag.class or .class
-tag with any other attribute || tag[attr=value] or [attr=value]
-tag with class and attribute || tag.class[attr=value] or .class[attr=value]
-
-*/
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {

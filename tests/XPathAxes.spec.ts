@@ -1,4 +1,29 @@
+/**
+ * Test suite for XPath Axes
+ * Demonstrates XPath axis selectors for element navigation and relationships
+ */
+
 import { test, expect } from '@playwright/test';
+
+/**
+ * Test Suite: XPath Axes Examples - Playwright TypeScript
+ * 
+ * Description:
+ * Comprehensive tests for XPath axes, which are methods for navigating
+ * the XML/HTML document tree. Axes define the relationship between nodes.
+ * 
+ * XPath Axes Include:
+ * - child: Direct children of current node
+ * - parent: Parent element of current node
+ * - ancestor: All ancestor elements up to root
+ * - descendant: All descendants at any level
+ * - following: All nodes after current node
+ * - preceding: All nodes before current node
+ * - following-sibling: Sibling nodes after current node
+ * - preceding-sibling: Sibling nodes before current node
+ * - self: The node itself
+ * - attribute: Attributes of the node
+ */
 
 test.describe('XPath Axes Examples - Playwright TypeScript', () => {
   test.beforeEach(async ({ page }) => {
