@@ -3,7 +3,7 @@
  * Tests interaction with elements that change their state or appearance dynamically
  */
 
-import { test, expect, Locator } from "@playwright/test"
+import { test, Locator } from "@playwright/test"
 
 /**
  * Test: Dynamic WebElement Handling

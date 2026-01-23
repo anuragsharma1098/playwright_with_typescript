@@ -3,7 +3,7 @@
  * Tests the ability to identify and report duplicate values in form dropdowns
  */
 
-import { test, expect, Locator } from '@playwright/test';
+import { test, Locator } from '@playwright/test';
 
 /**
  * Test: Duplicate DropDown

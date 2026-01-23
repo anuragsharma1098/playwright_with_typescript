@@ -3,7 +3,7 @@
  * Tests handling of dynamically appearing suggestions in search inputs
  */
 
-import { test, expect, Locator } from '@playwright/test';
+import { test, Locator } from '@playwright/test';
 
 /**
  * Test: Auto-suggest drop-down functionality

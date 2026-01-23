@@ -3,7 +3,7 @@
  * Demonstrates different Playwright API methods for accessing element text and collections
  */
 
-import { test, expect, Locator } from '@playwright/test';
+import { test, Locator } from '@playwright/test';
 
 /**
  * Test: Comparing different methods to locate elements

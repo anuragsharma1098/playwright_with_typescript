@@ -39,6 +39,8 @@ test("Verify Sorted DropDown", async ({ page }) => {
     
     // Create a new sorted copy of the options
     const sortedList: string[] = [...originalList].sort();
+    // sonar issue fix
+    //const sortedList: string[] = [...originalList].sort((a, b) => a.localeCompare(b));
     console.log("Sorted list: " + sortedList);
 
     // Assert that original list matches sorted list (options are sorted)

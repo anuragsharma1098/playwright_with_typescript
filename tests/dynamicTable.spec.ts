@@ -4,7 +4,6 @@
  */
 
 import { test, expect, Locator } from '@playwright/test';
-import { text } from 'node:stream/consumers';
 
 /**
  * Test: Verify Chrome CPU load in dynamic table

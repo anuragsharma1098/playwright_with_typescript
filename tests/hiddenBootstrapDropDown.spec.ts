@@ -3,7 +3,7 @@
  * Tests handling of Bootstrap dropdown components that render dynamically
  */
 
-import { test, expect, Locator } from '@playwright/test';
+import { test } from '@playwright/test';
 
 /**
  * Test: bootstrap hidden dropdown
