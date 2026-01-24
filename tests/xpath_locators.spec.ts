@@ -1,7 +1,31 @@
+/**
+ * Test suite for XPath locator strategies
+ * Demonstrates absolute and relative XPath approaches
+ */
+
 import { test, expect, Locator } from "@playwright/test"
 
+/**
+ * Test: XPath demo in playwright
+ * 
+ * Description:
+ * Comprehensive demonstration of XPath locator strategies including:
+ * - Absolute XPath: Complete path from root element
+ * - Relative XPath: Partial path starting from any element
+ * - XPath functions: normalize-space(), contains()
+ * - Text matching and filtering
+ * - Element collection handling
+ * 
+ * Test Steps:
+ * 1. Navigate to tutorial ninja demo website
+ * 2. Test absolute XPath locator
+ * 3. Test relative XPath with text normalization
+ * 4. Locate elements with contains() function
+ * 5. Count and display elements
+ * 6. Extract individual and bulk element content
+ */
 test("XPath demo in playwright", async ({ page }) => {
-
+    // Navigate to tutorial ninja demo website
     await page.goto("https://tutorialsninja.com/demo/");
 
     // Absolute Xpath

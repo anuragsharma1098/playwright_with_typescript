@@ -1,17 +1,31 @@
+/**
+ * Test suite for modern Playwright locator strategies
+ * Demonstrates accessible and resilient element locating methods
+ */
+
 import { test, expect, Locator } from '@playwright/test'
 
-// page.getByRole() to locate by explicit and implicit accessibility attributes.
-// page.getByText() to locate by text content.(non interactive element)
-// page.getByLabel() to locate a form control by associated label's text.
-// page.getByPlaceholder() to locate an input by placeholder.
-// page.getByAltText() to locate an element, usually image, by its text alternative.
-// page.getByTitle() to locate an element by its title attribute.
-// page.getByTestId() to locate an element based on its data-testid attribute (other attributes can be configured).
+/**
+ * Playwright Built-in Locators Overview:
+ * 
+ * - getByRole(): Locate by explicit and implicit accessibility attributes (recommended)
+ * - getByText(): Locate by text content (non-interactive elements)
+ * - getByLabel(): Locate form controls by associated label's text
+ * - getByPlaceholder(): Locate input by placeholder text
+ * - getByAltText(): Locate elements (usually images) by alt text
+ * - getByTitle(): Locate elements by title attribute
+ * - getByTestId(): Locate by data-testid attribute (or custom configured attribute)
+ */
 
-
+/**
+ * Test: locators test
+ * 
+ * Description:
+ * Demonstrates various modern locator strategies for element selection.
+ * Shows both basic usage and filtering by role, text, and other attributes.
+ */
 test('locators test', async ({ page }) => {
-
-    // go to website
+    // Navigate to e-commerce demo website
     await page.goto("https://tutorialsninja.com/demo/");
 
     // page.getByAltText()

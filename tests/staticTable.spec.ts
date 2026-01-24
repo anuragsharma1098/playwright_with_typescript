@@ -1,14 +1,41 @@
+/**
+ * Test suite for static HTML table interaction
+ * Demonstrates comprehensive table testing including row/column counting, data extraction, and filtering
+ */
+
 import { test, expect, Locator } from '@playwright/test';
 
+/**
+ * Test: Static Table Test
+ * 
+ * Description:
+ * Comprehensive test for interacting with static HTML tables.
+ * Demonstrates:
+ * - Counting rows and columns
+ * - Reading and verifying specific cell data
+ * - Iterating through entire table
+ * - Filtering data based on criteria (e.g., books by author)
+ * - Calculating aggregates (total price)
+ * 
+ * Test Steps:
+ * 1. Navigate to test automation practice website
+ * 2. Locate table and verify visibility
+ * 3. Count and validate rows and columns
+ * 4. Extract and display table data
+ * 5. Filter books by specific author
+ * 6. Calculate total price of all books
+ * 7. Verify results with assertions
+ */
 test('Static Table Test', async ({ page }) => {
-
+    // Navigate to test automation practice website
     await page.goto('https://testautomationpractice.blogspot.com/');
 
+    // Locate the table body (BookTable)
     const table: Locator = page.locator('table[name="BookTable"] tbody');
     await expect(table).toBeVisible();
 
-    // 1) count number of rows in a table
-    const rows = table.locator('tr'); //chainable locator for rows
+    // Step 1: Count number of rows in the table
+    const rows = table.locator('tr'); // Chainable locator for rows
 
     await expect(rows).toHaveCount(7); // including header row
     console.log(`Number of rows: ${await rows.count()}`);

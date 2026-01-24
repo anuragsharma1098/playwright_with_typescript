@@ -1,15 +1,28 @@
 {
   "name": "playwright_typescript",
   "version": "1.0.0",
-  "description": "",
+  "description": "Playwright automation testing framework with TypeScript",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anuragsharma1098/playwright_with_typescript.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "typescript",
+    "e2e",
+    "web testing"
+  ],
+  "author": "Anurag Sharma",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {

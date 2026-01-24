@@ -1,16 +1,34 @@
+/**
+ * Test suite for single-select dropdown components
+ * Demonstrates various methods of selecting options from a dropdown
+ */
+
 import { test, expect, Locator } from '@playwright/test';
 
+/**
+ * Test: Single Select DropDown Component
+ * 
+ * Description:
+ * Tests selecting an option from a single-select dropdown using different methods.
+ * Also validates dropdown properties and verifies available options.
+ * 
+ * Selection Methods:
+ * 1. By visible text: selectOption('text')
+ * 2. By label object: selectOption({ label: 'text' })
+ * 3. By value attribute: selectOption({ value: 'attr' })
+ * 4. By index position: selectOption({ index: n })
+ */
 test("Single Select DropDown Component", async ({ page }) => {
+    // Navigate to test automation practice website
     await page.goto('https://testautomationpractice.blogspot.com/');
 
-    // select option from the drop down(4 ways)
+    // Select option from dropdown using different approaches:
+    // By visible text: await page.locator('#country').selectOption('Australia');
+    // By label: await page.locator('#country').selectOption({ label: 'Australia' });
+    // By value attribute: await page.locator('#country').selectOption({ value: 'Australia' });
+    // By index position: await page.locator('#country').selectOption({ index: 3 });
 
-    // await page.locator('#country').selectOption('Australia'); // visible text
-    // await page.locator('#country').selectOption({ label: 'Australia' }); // visible text
-    // await page.locator('#country').selectOption({ value: 'Australia' }); // value attribute
-    // await page.locator('#country').selectOption({ index: 3 }); // index position
-
-
+    // Select 'India' by visible text
     await page.locator('#country').selectOption('India');
     await page.waitForTimeout(2000);
 
