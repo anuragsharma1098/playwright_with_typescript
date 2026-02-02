@@ -29,3 +29,22 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+    
+    - name: Send test results via email
+      if: ${{ always() }}
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: ${{ secrets.SMTP_SERVER }}
+        server_port: ${{ secrets.SMTP_PORT }}
+        username: ${{ secrets.SMTP_USERNAME }}
+        password: ${{ secrets.SMTP_PASSWORD }}
+        subject: "Playwright Test Results - ${{ job.status }}"
+        to: ${{ secrets.EMAIL_RECIPIENT }}
+        from: ${{ secrets.EMAIL_FROM }}
+        body: |
+          Test Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Branch: ${{ github.ref }}
+          Commit: ${{ github.sha }}
+          Status: ${{ job.status }}
+          
+          See attached test report for details.
