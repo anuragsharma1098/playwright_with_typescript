@@ -32,4 +32,5 @@ test('get started link', async ({ page }) => {
 
   // Assert that Installation heading is visible on the destination page
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  // secret check
 });
