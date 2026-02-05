@@ -55,7 +55,7 @@ test("verify chrome cpu load in dynamic table", async ({ page }) => {
     }
     
     // Get the CPU load value displayed in the top section of the page
-    let cpuLoadValue = await page.locator("#chrome-cpu").innerText();
+    const cpuLoadValue = await page.locator("#chrome-cpu").innerText();
     console.log(`CPU Load value from the top section: ${cpuLoadValue}`);
     
     // Extract the actual CPU value from the text (format: "CPU: X%")

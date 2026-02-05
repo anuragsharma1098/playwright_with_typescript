@@ -38,7 +38,7 @@ test("Pagination Table Test", async ({ page }) => {
     const rows = await page.locator("#example tbody tr").all();
     
     // Log each row's content
-    for (let row of rows) {
+    for (const row of rows) {
       const rowText = await row.innerText();
       console.log(rowText);
     }
@@ -126,7 +126,7 @@ test("search for specific data", async ({ page }) => {
   // Process the search results
   if (rows.length > 0) {
     // If rows are found, verify each row contains the search term
-    for (let row of rows) {
+    for (const row of rows) {
       const rowText = await row.innerText();
       
       // Assert that the row contains the searched text

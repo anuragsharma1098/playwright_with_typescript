@@ -192,7 +192,7 @@ async function selectDate(
   const allDates = await page.locator(".ui-datepicker-calendar td").all();
 
   // Iterate through all date cells to find and click the target day
-  for (let dateCell of allDates) {
+  for (const dateCell of allDates) {
     const dateText = await dateCell.innerText();
     if (dateText.trim() === day) {
       await dateCell.click();

@@ -65,7 +65,7 @@ test('Comparing different methods to locate elements', async ({ page }) => {
 
     // console.log(await allProducts[0].innerText());
 
-    for (let product of allProducts) {
+    for (const product of allProducts) {
         console.log(await product.innerText());
     }
 });

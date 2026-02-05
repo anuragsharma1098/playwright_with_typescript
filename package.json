@@ -8,7 +8,9 @@
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "lint": "eslint . --ext .ts,.js",
+    "lint:fix": "eslint . --ext .ts,.js --fix"
   },
   "repository": {
     "type": "git",
@@ -30,7 +32,11 @@
   },
   "homepage": "https://github.com/anuragsharma1098/playwright_with_typescript#readme",
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@playwright/test": "^1.57.0",
-    "@types/node": "^25.0.3"
+    "@types/node": "^25.0.3",
+    "eslint": "^9.39.2",
+    "globals": "^17.3.0",
+    "typescript-eslint": "^8.54.0"
   }
 }

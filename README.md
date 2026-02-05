@@ -28,6 +28,60 @@ Before running the tests, ensure you have the following installed:
    npx playwright install
    ```
 
+## Linting
+
+This project uses **ESLint** with TypeScript support for code quality and consistency.
+
+### Run ESLint
+
+```bash
+npx eslint .
+```
+
+### Fix ESLint issues automatically
+
+```bash
+npx eslint . --fix
+```
+
+### ESLint Configuration
+
+The project is configured with:
+- **JS Best Practices** (ESLint recommended rules)
+- **TypeScript Support** (typescript-eslint)
+- **Custom Rules:**
+  - `no-console`: Warnings for console statements (except warn/error)
+  - `no-var` & `prefer-const`: Enforce modern variable declarations
+  - `@typescript-eslint/no-unused-vars`: Warns about unused variables (parameters prefixed with `_` are ignored)
+  - `@typescript-eslint/no-explicit-any`: Warns against using `any` type
+
+Ignored directories: `node_modules/`, `dist/`, `build/`, `playwright-report/`, `test-results/`
+
+## Useful Commands
+
+### Quick Reference (npm scripts)
+
+```bash
+npm test                 # Run all tests
+npm run test:ui         # Run tests in UI mode
+npm run test:headed     # Run tests in headed mode (see browser)
+npm run test:debug      # Run tests in debug mode
+npm run test:report     # View the latest test report
+npm run lint            # Check code quality with ESLint
+npm run lint:fix        # Auto-fix ESLint issues
+```
+
+### Direct Playwright Commands
+
+```bash
+npx playwright test --project=chromium    # Run tests only in Chromium
+npx playwright test --project=firefox     # Run tests only in Firefox
+npx playwright test --project=webkit      # Run tests only in WebKit
+npx playwright test tests/example.spec.ts # Run a specific test file
+npx playwright test -g "test name"        # Run tests matching a pattern
+npx playwright test --trace=on            # Enable trace recording
+```
+
 ## Running Tests
 
 ### Run all tests

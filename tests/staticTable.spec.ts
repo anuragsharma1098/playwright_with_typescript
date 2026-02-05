@@ -74,7 +74,7 @@ test('Static Table Test', async ({ page }) => {
     console.log('--- Using all() method to get all rows ---');
     const allRowsData = await rows.all();
 
-    for (let row of allRowsData.slice(1)) { // skip header row
+    for (const row of allRowsData.slice(1)) { // skip header row
         const rowData = await row.locator('td').allTextContents();
         console.log(`Row data: ${rowData.join(', ')}`);
     }

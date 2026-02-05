@@ -50,7 +50,7 @@ test("XPath demo in playwright", async ({ page }) => {
     console.log("First Product Content: ", await products.last().textContent());
     console.log();
     console.log(await products.allTextContents());
-    let productTitles: string[] = await products.allTextContents();
-    for (let pt of productTitles)
+    const productTitles: string[] = await products.allTextContents();
+    for (const pt of productTitles)
         console.log(pt)
 });
