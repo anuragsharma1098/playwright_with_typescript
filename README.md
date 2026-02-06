@@ -57,6 +57,35 @@ The project is configured with:
 
 Ignored directories: `node_modules/`, `dist/`, `build/`, `playwright-report/`, `test-results/`
 
+## Code Formatting
+
+This project uses **Prettier** for automatic code formatting to ensure consistent code style across the codebase.
+
+### Format code automatically
+
+```bash
+npm run format
+```
+
+### Check if files need formatting
+
+```bash
+npm run format:check
+```
+
+### Prettier Configuration
+
+The project is configured with:
+- **Print Width:** 100 characters
+- **Tab Width:** 2 spaces
+- **Quotes:** Single quotes
+- **Trailing Commas:** ES5 compatible
+- **Line Ending:** LF (Unix-style)
+- **Semicolons:** Enabled
+
+Configuration file: `.prettierrc`
+Ignored files: `.prettierignore`
+
 ## Useful Commands
 
 ### Quick Reference (npm scripts)

@@ -10,7 +10,9 @@
     "test:headed": "playwright test --headed",
     "test:report": "playwright show-report",
     "lint": "eslint . --ext .ts,.js",
-    "lint:fix": "eslint . --ext .ts,.js --fix"
+    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,7 @@
     "@types/node": "^25.0.3",
     "eslint": "^9.39.2",
     "globals": "^17.3.0",
+    "prettier": "^3.8.1",
     "typescript-eslint": "^8.54.0"
   }
 }
