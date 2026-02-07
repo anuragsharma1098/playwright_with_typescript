@@ -60,6 +60,12 @@ export default defineConfig({
     /* See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     
+    /* Capture screenshots on test failure */
+    screenshot: 'only-on-failure',
+    
+    /* Capture videos on test failure */
+    video: 'retain-on-failure',
+    
     /* Custom attribute to be used in page.getByTestId(testId). */
     /* Default is 'data-testid', but can be customized here */
     testIdAttribute: 'data-pw',
