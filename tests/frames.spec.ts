@@ -19,4 +19,20 @@ test('should work with frames', async ({ page }) => {
   const frame2 = page.frameLocator('[src*="frame_2.html"]').locator('[name="mytext2"]');
   await frame2.fill('Hello Frame 2');
   await page.waitForTimeout(5000);
+
+  // nexted frames
+  const frame3 = page.frame({ url: 'https://ui.vision/demo/webtest/frames/frame_3.html' });
+  if (frame3) {
+    await frame3.locator("[name='mytext3']").fill('Hello Nested Frame');
+    const childFrame = frame3.childFrames();
+    console.log(childFrame.length);
+    for (const frame of childFrame) {
+      console.log(frame.url());
+    }
+    if (childFrame.length > 0) {
+      const radio = childFrame[0].getByLabel('I am a human');
+      await radio.check();
+      await expect(radio).toBeChecked();
+    }
+  } else console.log('Frame not found');
 });
