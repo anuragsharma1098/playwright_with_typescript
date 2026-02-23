@@ -22,7 +22,7 @@ test('Google Homepage', async ({ page }) => {
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Google/);
-  await expect(page).toHaveURL('https://www.google.com')
+  await expect(page).toHaveURL('https://www.google.com/')
 
  // console.log('Google homepage loaded successfully with correct title and URL.');
 });
