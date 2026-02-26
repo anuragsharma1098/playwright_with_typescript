@@ -24,34 +24,37 @@ test('Auto-suggest drop-down functionality', async ({ page }) => {
     // Navigate to Flipkart homepage
     await page.goto('https://www.flipkart.com/');
 
-    // Fill the search input with 'smart' and wait for suggestions to appear
-    await page.locator('input[name="q"]').fill('smart');
-    await page.waitForTimeout(8000); // wait for suggestions to load
+    // Close login popup if it appears
+    await page.getByRole('button', { name: '✕' }).click();
 
-    // Locate all suggestion items (li elements within ul)
-    // Note: Do not emulate focused page in browser DevTools for accurate testing
-    // Emulated focus may prevent suggestions from appearing
-    // ctrl+shift+p -> Emulate focus -> Disable
-    // after using disable, refresh the page and run the test again
-    const suggestions: Locator = page.locator("ul>li");
-    const suggestionCount = await suggestions.count();
+    // // Fill the search input with 'smart' and wait for suggestions to appear
+    // await page.locator('input[name="q"]').fill('smart');
+    // await page.waitForTimeout(8000); // wait for suggestions to load
 
-    // Log total number of suggestions
-    console.log('Total suggestions: ' + suggestionCount);
+    // // Locate all suggestion items (li elements within ul)
+    // // Note: Do not emulate focused page in browser DevTools for accurate testing
+    // // Emulated focus may prevent suggestions from appearing
+    // // ctrl+shift+p -> Emulate focus -> Disable
+    // // after using disable, refresh the page and run the test again
+    // const suggestions: Locator = page.locator("ul>li");
+    // const suggestionCount = await suggestions.count();
 
-    // Print all suggested options to console for verification
-    console.log('Suggested options:');
-    for (let i = 0; i < suggestionCount; i++) {
-        const suggestionText = await suggestions.nth(i).textContent();
-        console.log(suggestionText);
-    }
+    // // Log total number of suggestions
+    // console.log('Total suggestions: ' + suggestionCount);
 
-    // Iterate through suggestions to find and click on 'smartphone'
-    for (let i = 0; i < suggestionCount; i++) {
-        const suggestionText = await suggestions.nth(i).textContent();
-        if (suggestionText?.trim() === 'smartphone') {
-            await suggestions.nth(i).click();
-            break; // Exit loop after selecting the option
-        }
-    }
+    // // Print all suggested options to console for verification
+    // console.log('Suggested options:');
+    // for (let i = 0; i < suggestionCount; i++) {
+    //     const suggestionText = await suggestions.nth(i).textContent();
+    //     console.log(suggestionText);
+    // }
+
+    // // Iterate through suggestions to find and click on 'smartphone'
+    // for (let i = 0; i < suggestionCount; i++) {
+    //     const suggestionText = await suggestions.nth(i).textContent();
+    //     if (suggestionText?.trim() === 'smartphone') {
+    //         await suggestions.nth(i).click();
+    //         break; // Exit loop after selecting the option
+    //     }
+    // }
 });

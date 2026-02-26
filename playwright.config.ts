@@ -7,15 +7,6 @@
  * Reference: https://playwright.dev/docs/test-configuration
  */
 
-/**
- * Playwright Test Configuration
- * 
- * Configuration file for Playwright testing framework.
- * Defines test settings, browser configurations, and reporting options.
- * 
- * Reference: https://playwright.dev/docs/test-configuration
- */
-
 import { defineConfig, devices } from '@playwright/test';
 
 /**
@@ -47,8 +38,11 @@ export default defineConfig({
   /* Opt out of parallel tests on CI to avoid resource constraints. */
   workers: process.env.CI ? 1 : undefined,
   
-  /* Reporter to use - generates HTML test report */
-  reporter: 'html',
+  /* Reporter configuration - JUnit and HTML reports for all environments */
+  reporter: [
+    ['junit', { outputFile: 'test-results/junit-report.xml' }],
+    ['html', { outputFolder: 'playwright-report' }],
+  ],
   
   /* Shared settings for all the test projects below. */
   /* See https://playwright.dev/docs/api/class-testoptions. */
