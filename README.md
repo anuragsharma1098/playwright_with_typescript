@@ -1,5 +1,10 @@
 # Playwright with TypeScript
 
+![CI](https://github.com/anuragsharma1098/playwright_with_typescript/actions/workflows/playwright.yml/badge.svg)
+
+![Tests](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/anuragsharma1098/playwright_with_typescript/master/test-summary.json)
+
+
 A test automation project using Playwright and TypeScript for end-to-end testing.
 
 ## Prerequisites
@@ -160,6 +165,15 @@ npx playwright show-report
 ```
 
 Test results are stored in the `test-results/` directory and reports in the `playwright-report/` directory.
+
+## Latest Test Summary
+
+| Total | Passed | Failed |
+|-------|--------|--------|
+| 0     | 0      | 0      |
+
+*(updated by CI)*
+
 
 ## Configuration
 

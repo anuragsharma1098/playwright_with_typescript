@@ -18,11 +18,50 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
+      run: |
+        # run tests with JSON reporter to capture summary
+        npx playwright test --reporter=json > results.json
       continue-on-error: true
     - name: Retry Playwright tests if failed
       if: failure()
-      run: npx playwright test
+      run: |
+        npx playwright test --reporter=json > results.json
+    - name: Parse test summary
+      id: parse_test_summary
+      if: always()
+      run: |
+        echo "Parsing results.json"
+        cat results.json
+        # use stats field which contains expected/passed counts
+        expected=$(jq '.stats.expected // 0' results.json)
+        skipped=$(jq '.stats.skipped // 0' results.json)
+        unexpected=$(jq '.stats.unexpected // 0' results.json)
+        flaky=$(jq '.stats.flaky // 0' results.json)
+        total=$((expected + skipped + unexpected + flaky))
+        passed=$expected
+        failed=$unexpected
+        echo "Stats: expected=$expected skipped=$skipped unexpected=$unexpected flaky=$flaky"
+        echo "Summary: total=$total passed=$passed failed=$failed"
+        echo "::set-output name=total::$total"
+        echo "::set-output name=passed::$passed"
+        echo "::set-output name=failed::$failed"
+    - name: Update README with results
+      if: always()
+      run: |
+        total=${{ steps.parse_test_summary.outputs.total }}
+        passed=${{ steps.parse_test_summary.outputs.passed }}
+        failed=${{ steps.parse_test_summary.outputs.failed }}
+        echo "Updating README: $total, $passed, $failed"
+        sed -i "s/| *[0-9]* *| *[0-9]* *| *[0-9]* *|/| $total | $passed | $failed |/" README.md
+        # also update badge JSON
+        color="green"
+        if [ "$failed" -gt 0 ]; then color="red"; fi
+        echo "{\"schemaVersion\":1,\"label\":\"tests\",\"message\":\"$passed/$total passed ($failed failed)\",\"color\":\"$color\"}" > test-summary.json
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add README.md test-summary.json
+        git commit -m "Update test summary: $passed/$total passed ($failed failed) [skip ci]" || echo "no changes to commit"
+        git push origin HEAD || echo "push failed"
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
