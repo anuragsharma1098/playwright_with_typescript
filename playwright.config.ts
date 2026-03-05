@@ -47,6 +47,9 @@ export default defineConfig({
   /* Shared settings for all the test projects below. */
   /* See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    /* Show browser UI instead of running headless */
+    headless: false,
+
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
