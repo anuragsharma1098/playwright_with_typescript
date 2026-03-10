@@ -4,7 +4,14 @@ const typescript = require('typescript-eslint');
 
 module.exports = [
   {
-    ignores: ['node_modules/', 'dist/', 'build/', 'playwright-report/', 'test-results/', 'eslint.config.js'],
+    ignores: [
+      'node_modules/',
+      'dist/',
+      'build/',
+      'playwright-report/',
+      'test-results/',
+      'eslint.config.js',
+    ],
   },
   js.configs.recommended,
   ...typescript.configs.recommended,

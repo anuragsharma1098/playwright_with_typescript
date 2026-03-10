@@ -1,9 +1,9 @@
 /**
  * Playwright Test Configuration
- * 
+ *
  * Configuration file for Playwright testing framework.
  * Defines test settings, browser configurations, and reporting options.
- * 
+ *
  * Reference: https://playwright.dev/docs/test-configuration
  */
 
@@ -25,25 +25,25 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   // Directory where test files are located
   testDir: './tests',
-  
+
   /* Run tests in files in parallel */
   fullyParallel: true,
-  
+
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  
+
   /* Retry on CI only - helps with flaky tests in CI environments */
   retries: process.env.CI ? 2 : 0,
-  
+
   /* Opt out of parallel tests on CI to avoid resource constraints. */
   workers: process.env.CI ? 1 : undefined,
-  
+
   /* Reporter configuration - JUnit and HTML reports for all environments */
   reporter: [
     ['junit', { outputFile: 'test-results/junit-report.xml' }],
     ['html', { outputFolder: 'playwright-report' }],
   ],
-  
+
   /* Shared settings for all the test projects below. */
   /* See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -56,13 +56,13 @@ export default defineConfig({
     /* Collect trace when retrying the failed test - useful for debugging */
     /* See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    
+
     /* Capture screenshots on test failure */
     screenshot: 'only-on-failure',
-    
+
     /* Capture videos on test failure */
     video: 'retain-on-failure',
-    
+
     /* Custom attribute to be used in page.getByTestId(testId). */
     /* Default is 'data-testid', but can be customized here */
     testIdAttribute: 'data-pw',

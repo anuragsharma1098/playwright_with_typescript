@@ -5,6 +5,7 @@ This guide explains how to set up email notifications for Playwright test result
 ## Step 1: Get SMTP Credentials
 
 ### For Gmail (Free)
+
 1. Go to [myaccount.google.com](https://myaccount.google.com)
 2. Left sidebar → **Security**
 3. Enable **2-Step Verification** (if not already enabled)
@@ -17,12 +18,14 @@ This guide explains how to set up email notifications for Playwright test result
    - `SMTP_PASSWORD`: the 16-char app password
 
 ### For Outlook/Office 365
+
 - `SMTP_SERVER`: `smtp.office365.com`
 - `SMTP_PORT`: `587`
 - `SMTP_USERNAME`: your email
 - `SMTP_PASSWORD`: your password
 
 ### For Other Providers
+
 - Search "[Your Email Provider] SMTP settings"
 
 ---
@@ -35,14 +38,14 @@ This guide explains how to set up email notifications for Playwright test result
 4. Click **New repository secret**
 5. Add each secret one by one:
 
-| Name | Value | Example |
-|------|-------|---------|
-| `SMTP_SERVER` | Email provider's SMTP server | `smtp.gmail.com` |
-| `SMTP_PORT` | SMTP port (usually 465 or 587) | `465` |
-| `SMTP_USERNAME` | Email address | `your-email@gmail.com` |
-| `SMTP_PASSWORD` | App password or email password | `your-16-char-app-password` |
-| `EMAIL_FROM` | Sender email address | `your-email@gmail.com` |
-| `EMAIL_RECIPIENT` | Where to send test results | `your-email@gmail.com` |
+| Name              | Value                          | Example                     |
+| ----------------- | ------------------------------ | --------------------------- |
+| `SMTP_SERVER`     | Email provider's SMTP server   | `smtp.gmail.com`            |
+| `SMTP_PORT`       | SMTP port (usually 465 or 587) | `465`                       |
+| `SMTP_USERNAME`   | Email address                  | `your-email@gmail.com`      |
+| `SMTP_PASSWORD`   | App password or email password | `your-16-char-app-password` |
+| `EMAIL_FROM`      | Sender email address           | `your-email@gmail.com`      |
+| `EMAIL_RECIPIENT` | Where to send test results     | `your-email@gmail.com`      |
 
 ---
 
@@ -72,19 +75,20 @@ git push
 
 ## Common Issues & Solutions
 
-| Issue | Solution |
-|-------|----------|
-| "Authentication failed" | Use [App Password](https://myaccount.google.com/apppasswords) for Gmail, not your regular password |
-| Email not received | Check spam/junk folder, verify `EMAIL_RECIPIENT` is correct |
-| Workflow fails | Check the **Actions** tab logs for detailed error messages |
-| 2FA not enabled for Gmail | Gmail requires 2FA enabled before App Passwords work |
-| Port 587 vs 465 | Use 465 for SSL (Gmail), 587 for TLS (Outlook) |
+| Issue                     | Solution                                                                                           |
+| ------------------------- | -------------------------------------------------------------------------------------------------- |
+| "Authentication failed"   | Use [App Password](https://myaccount.google.com/apppasswords) for Gmail, not your regular password |
+| Email not received        | Check spam/junk folder, verify `EMAIL_RECIPIENT` is correct                                        |
+| Workflow fails            | Check the **Actions** tab logs for detailed error messages                                         |
+| 2FA not enabled for Gmail | Gmail requires 2FA enabled before App Passwords work                                               |
+| Port 587 vs 465           | Use 465 for SSL (Gmail), 587 for TLS (Outlook)                                                     |
 
 ---
 
 ## Email Content
 
 The workflow will send an email with:
+
 - Test run URL (link to GitHub Actions)
 - Branch name
 - Commit hash
@@ -106,7 +110,7 @@ To customize the email further, edit `.github/workflows/playwright.yml`:
     server_port: ${{ secrets.SMTP_PORT }}
     username: ${{ secrets.SMTP_USERNAME }}
     password: ${{ secrets.SMTP_PASSWORD }}
-    subject: "Playwright Test Results - ${{ job.status }}"
+    subject: 'Playwright Test Results - ${{ job.status }}'
     to: ${{ secrets.EMAIL_RECIPIENT }}
     from: ${{ secrets.EMAIL_FROM }}
     body: |
@@ -114,7 +118,7 @@ To customize the email further, edit `.github/workflows/playwright.yml`:
       Branch: ${{ github.ref }}
       Commit: ${{ github.sha }}
       Status: ${{ job.status }}
-      
+
       See attached test report for details.
 ```
 

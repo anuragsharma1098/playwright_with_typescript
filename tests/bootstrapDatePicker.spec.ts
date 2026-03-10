@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from '@playwright/test';
 
 /**
  * TEST: Book Dates for Any Range
@@ -36,19 +36,19 @@ import { test, expect } from "@playwright/test";
  * - Calendar must support "Next month" navigation button
  * - Date buttons must use accessibility role 'button' with date text
  */
-test("book dates for any range", async ({ page }) => {
+test('book dates for any range', async ({ page }) => {
   /**
    * STEP 1: Navigate to Booking.com
    * Opens the main homepage where users can search for accommodations
    */
-  await page.goto("https://www.booking.com/");
+  await page.goto('https://www.booking.com/');
 
   /**
    * STEP 2: Dismiss Sign-In Overlay
    * Closes the persistent sign-in information banner that appears on page load.
    * This step is necessary because the overlay blocks interaction with the date picker.
    */
-  await page.getByRole("button", { name: "Dismiss sign-in info." }).click();
+  await page.getByRole('button', { name: 'Dismiss sign-in info.' }).click();
 
   /**
    * STEP 3: Open Calendar/Date Picker
@@ -67,8 +67,8 @@ test("book dates for any range", async ({ page }) => {
    * - Each "Next month" click advances the calendar by one month
    * - For May dates, we need to navigate forward 2 months (Feb -> Mar -> Apr -> May)
    */
-  await page.getByRole("button", { name: "Next month" }).click();
-  await page.getByRole("button", { name: "Next month" }).click();
+  await page.getByRole('button', { name: 'Next month' }).click();
+  await page.getByRole('button', { name: 'Next month' }).click();
 
   /**
    * STEP 5: Select Check-In Date (May 10)
@@ -80,7 +80,7 @@ test("book dates for any range", async ({ page }) => {
    * - Day of week prefix (Su, Mo, Tu, etc.) is ignored
    * - Case-sensitive matching
    */
-  await page.getByRole("button", { name: /10 May/ }).click();
+  await page.getByRole('button', { name: /10 May/ }).click();
 
   /**
    * STEP 6: Navigate for Check-Out Date
@@ -89,7 +89,7 @@ test("book dates for any range", async ({ page }) => {
    * For May 10 - May 28, both dates are in the same month, but this
    * step ensures flexibility for date ranges spanning multiple months.
    */
-  await page.getByRole("button", { name: "Next month" }).click();
+  await page.getByRole('button', { name: 'Next month' }).click();
 
   /**
    * STEP 7: Select Check-Out Date (May 28)
@@ -99,5 +99,5 @@ test("book dates for any range", async ({ page }) => {
    * Note: After selecting checkout date, the calendar typically closes
    * and the booking form updates with the selected date range.
    */
-  await page.getByRole("button", { name: /28 May/ }).click();
+  await page.getByRole('button', { name: /28 May/ }).click();
 });

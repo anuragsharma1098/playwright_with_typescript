@@ -1,13 +1,13 @@
 /**
  * Dialog Handling Test Suite
- * 
+ *
  * Comprehensive tests for Playwright dialog handling
- * 
+ *
  * Dialog Types:
  * - Alert: Simple notification dialog
  * - Confirm: Dialog requiring user confirmation (accept/dismiss)
  * - Prompt: Dialog requesting user input
- * 
+ *
  * Dialog Handling:
  * - Use page.on('dialog') to listen for dialog events
  * - Inspect dialog type and message
@@ -20,7 +20,7 @@ import { test, expect } from '@playwright/test';
 
 /**
  * Test: Dialog test
- * 
+ *
  * Description: Verifies basic alert dialog handling and message validation
  */
 test('Dialog test', async ({ page }) => {
@@ -38,7 +38,7 @@ test('Dialog test', async ({ page }) => {
 
 /**
  * Test: Confirmation Dialog test
- * 
+ *
  * Description: Verifies confirm dialog handling with dismiss action and result validation
  */
 test('Confirmation Dialog test', async ({ page }) => {
@@ -53,11 +53,11 @@ test('Confirmation Dialog test', async ({ page }) => {
   });
   await page.locator('#confirmBtn').click();
   const demoText = await page.locator('#demo').innerText();
-/**
- * Test: Prompt Dialog test
- * 
- * Description: Verifies prompt dialog handling with user input and default value validation
- */
+  /**
+   * Test: Prompt Dialog test
+   *
+   * Description: Verifies prompt dialog handling with user input and default value validation
+   */
   console.log(demoText);
   expect(page.locator('#demo')).toHaveText('You pressed Cancel!');
   await page.waitForTimeout(2000);

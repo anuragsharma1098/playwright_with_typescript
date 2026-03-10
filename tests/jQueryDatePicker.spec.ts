@@ -1,4 +1,4 @@
-import { test, expect, Page } from "@playwright/test";
+import { test, expect, Page } from '@playwright/test';
 
 /**
  * Helper Function: Determine Navigation Direction
@@ -33,17 +33,17 @@ function shouldNavigateForward(
   currentMonth: string,
   targetYear: string,
   targetMonth: string,
-  direction: "future" | "past" | "auto"
+  direction: 'future' | 'past' | 'auto'
 ): boolean {
-  if (direction === "future") {
+  if (direction === 'future') {
     return true;
   }
-  if (direction === "past") {
+  if (direction === 'past') {
     return false;
   }
 
-  const currYear = Number.parseInt(currentYear || "0", 10);
-  const currMonth = getMonthIndex(currentMonth || "");
+  const currYear = Number.parseInt(currentYear || '0', 10);
+  const currMonth = getMonthIndex(currentMonth || '');
   const tgtYear = Number.parseInt(targetYear, 10);
   const tgtMonth = getMonthIndex(targetMonth);
 
@@ -110,20 +110,20 @@ async function selectDate(
   year: string,
   month: string,
   day: string,
-  direction: "future" | "past" | "auto" = "auto"
+  direction: 'future' | 'past' | 'auto' = 'auto'
 ): Promise<void> {
   /**
    * STEP 1: Open the date picker
    * Click the input field with id="datepicker" to trigger calendar display
    */
-  const dateInput = page.locator("#datepicker");
+  const dateInput = page.locator('#datepicker');
   await dateInput.click();
-  
+
   /**
    * Wait for jQuery calendar overlay to appear
    * The calendar is rendered with class="ui-datepicker"
    */
-  await page.waitForSelector(".ui-datepicker");
+  await page.waitForSelector('.ui-datepicker');
 
   let navigations = 0;
   const maxNavigations = 120; // Safety limit to prevent infinite loops
@@ -138,8 +138,8 @@ async function selectDate(
      * jQuery DatePicker displays month in class="ui-datepicker-month"
      * and year in class="ui-datepicker-year"
      */
-    const yearSelect = await page.locator(".ui-datepicker-year").textContent();
-    const monthSelect = await page.locator(".ui-datepicker-month").textContent();
+    const yearSelect = await page.locator('.ui-datepicker-year').textContent();
+    const monthSelect = await page.locator('.ui-datepicker-month').textContent();
 
     // If we've reached the target month/year, exit the loop
     if (yearSelect === year && monthSelect === month) {
@@ -151,8 +151,8 @@ async function selectDate(
      * Helper function compares current vs target date
      */
     const shouldClickNext = shouldNavigateForward(
-      yearSelect || "",
-      monthSelect || "",
+      yearSelect || '',
+      monthSelect || '',
       year,
       month,
       direction
@@ -164,9 +164,9 @@ async function selectDate(
      * Prev button: class="ui-datepicker-prev" (navigate backward/previous month)
      */
     if (shouldClickNext) {
-      await page.locator(".ui-datepicker-next").click();
+      await page.locator('.ui-datepicker-next').click();
     } else {
-      await page.locator(".ui-datepicker-prev").click();
+      await page.locator('.ui-datepicker-prev').click();
     }
 
     navigations++;
@@ -179,9 +179,7 @@ async function selectDate(
    * If we did, the target date doesn't exist or couldn't be reached
    */
   if (navigations >= maxNavigations) {
-    throw new Error(
-      `Could not navigate to ${month} ${year} after ${maxNavigations} attempts`
-    );
+    throw new Error(`Could not navigate to ${month} ${year} after ${maxNavigations} attempts`);
   }
 
   /**
@@ -189,7 +187,7 @@ async function selectDate(
    * jQuery calendar displays dates in table cells (td elements)
    * Each td contains a day number
    */
-  const allDates = await page.locator(".ui-datepicker-calendar td").all();
+  const allDates = await page.locator('.ui-datepicker-calendar td').all();
 
   // Iterate through all date cells to find and click the target day
   for (const dateCell of allDates) {
@@ -222,8 +220,18 @@ async function selectDate(
  */
 function getMonthIndex(monthName: string): number {
   const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
   return months.indexOf(monthName);
 }
@@ -252,19 +260,19 @@ function getMonthIndex(monthName: string): number {
  * - Useful when you know the target date is ahead in the calendar
  * - jQuery DatePicker returns zero-padded dates (02/04 not 2/4)
  */
-test("jQuery DatePicker should select a date correctly", async ({ page }) => {
+test('jQuery DatePicker should select a date correctly', async ({ page }) => {
   // STEP 1: Navigate to page containing jQuery DatePicker
-  await page.goto("https://testautomationpractice.blogspot.com/");
-  
+  await page.goto('https://testautomationpractice.blogspot.com/');
+
   // STEP 2: Locate and verify datepicker input is visible
-  const dateInput = page.locator("#datepicker");
+  const dateInput = page.locator('#datepicker');
   expect(dateInput).toBeVisible();
 
   // STEP 3: Select future date (February 4, 2026) with forward navigation
-  await selectDate(page, "2026", "February", "4", "future");
-  
+  await selectDate(page, '2026', 'February', '4', 'future');
+
   // STEP 4: Verify the selected date is reflected in the input field
-  await expect(dateInput).toHaveValue("02/04/2026");
+  await expect(dateInput).toHaveValue('02/04/2026');
 });
 
 /**
@@ -291,19 +299,19 @@ test("jQuery DatePicker should select a date correctly", async ({ page }) => {
  * - Useful for selecting dates in the past
  * - Year 2024 is before current date (February 2026)
  */
-test("jQuery DatePicker should select a past date", async ({ page }) => {
+test('jQuery DatePicker should select a past date', async ({ page }) => {
   // STEP 1: Navigate to page containing jQuery DatePicker
-  await page.goto("https://testautomationpractice.blogspot.com/");
-  
+  await page.goto('https://testautomationpractice.blogspot.com/');
+
   // STEP 2: Locate and verify datepicker input is visible
-  const dateInput = page.locator("#datepicker");
+  const dateInput = page.locator('#datepicker');
   expect(dateInput).toBeVisible();
 
   // STEP 3: Select past date (June 15, 2024) with backward navigation
-  await selectDate(page, "2024", "June", "15", "past");
-  
+  await selectDate(page, '2024', 'June', '15', 'past');
+
   // STEP 4: Verify the selected date is reflected in the input field
-  await expect(dateInput).toHaveValue("06/15/2024");
+  await expect(dateInput).toHaveValue('06/15/2024');
 });
 
 /**
@@ -336,18 +344,18 @@ test("jQuery DatePicker should select a past date", async ({ page }) => {
  * - For generic date selection functions
  * - When you want the most efficient path to target date
  */
-test("jQuery DatePicker should select a date with auto direction", async ({ page }) => {
+test('jQuery DatePicker should select a date with auto direction', async ({ page }) => {
   // STEP 1: Navigate to page containing jQuery DatePicker
-  await page.goto("https://testautomationpractice.blogspot.com/");
-  
+  await page.goto('https://testautomationpractice.blogspot.com/');
+
   // STEP 2: Locate and verify datepicker input is visible
-  const dateInput = page.locator("#datepicker");
+  const dateInput = page.locator('#datepicker');
   expect(dateInput).toBeVisible();
 
   // STEP 3: Select date (December 25, 2025) with auto-direction detection
   // The function automatically determines to navigate backward
-  await selectDate(page, "2025", "December", "25", "auto");
-  
+  await selectDate(page, '2025', 'December', '25', 'auto');
+
   // STEP 4: Verify the selected date is reflected in the input field
-  await expect(dateInput).toHaveValue("12/25/2025");
+  await expect(dateInput).toHaveValue('12/25/2025');
 });

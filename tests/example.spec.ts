@@ -7,7 +7,7 @@ import { test, expect } from '@playwright/test';
 
 /**
  * Test: has title
- * 
+ *
  * Description: Verifies that the Playwright documentation page loads and contains 'Playwright' in its title
  */
 test('has title', async ({ page }) => {
@@ -20,7 +20,7 @@ test('has title', async ({ page }) => {
 
 /**
  * Test: get started link
- * 
+ *
  * Description: Verifies the "Get started" link navigation and successful display of Installation heading
  */
 test('get started link', async ({ page }) => {

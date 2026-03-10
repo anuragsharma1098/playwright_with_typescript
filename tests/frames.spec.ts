@@ -1,15 +1,15 @@
 /**
  * Frames Test Suite
- * 
+ *
  * Comprehensive tests for Playwright frame handling
- * 
+ *
  * Frame Concepts:
  * - Frames: Isolated execution contexts within a page (iframes, nested frames)
  * - page.frames(): Returns all frames in the page hierarchy
  * - page.frame(): Access specific frame by URL or selector
  * - page.frameLocator(): Create locator for elements inside frames
  * - ChildFrames: Nested frames within parent frames
- * 
+ *
  * Frame Handling Approaches:
  * 1. Direct Frame Access: Use page.frame() to get frame and interact with elements
  * 2. Frame Locator: Use page.frameLocator() for cleaner locator chain
@@ -20,7 +20,7 @@ import { test, expect } from '@playwright/test';
 
 /**
  * Test: should work with frames
- * 
+ *
  * Description: Verifies frame handling including simple frames, nested frames, and child frame interactions
  * Demonstrates multiple approaches to access and interact with frame elements
  */

@@ -7,12 +7,12 @@ import { test, expect, Locator } from '@playwright/test';
 
 /**
  * Test: Verify Sorted DropDown
- * 
+ *
  * Description:
  * Verifies that dropdown options are sorted alphabetically.
  * Extracts all options, creates a sorted copy, and compares the two lists
  * to ensure they match in order.
- * 
+ *
  * Test Steps:
  * 1. Navigate to test automation practice website
  * 2. Locate all options in the animals dropdown
@@ -21,28 +21,28 @@ import { test, expect, Locator } from '@playwright/test';
  * 5. Compare original list with sorted list
  * 6. Assert they are equal (options are sorted)
  */
-test("Verify Sorted DropDown", async ({ page }) => {
-    // Navigate to test automation practice website
-    await page.goto('https://testautomationpractice.blogspot.com/');
+test('Verify Sorted DropDown', async ({ page }) => {
+  // Navigate to test automation practice website
+  await page.goto('https://testautomationpractice.blogspot.com/');
 
-    // Locate all options in the animals dropdown
-    const options: Locator = page.locator('#animals option');
-    
-    // Extract all option text and trim whitespace
-    console.log(await options.allTextContents());
-    const optionText: string[] = (await options.allTextContents()).map(text => text.trim());
-    console.log("Options in the drop down: " + optionText);
+  // Locate all options in the animals dropdown
+  const options: Locator = page.locator('#animals option');
 
-    // Store the original list of options
-    const originalList: string[] = optionText;
-    console.log("Original list: " + originalList);
-    
-    // Create a new sorted copy of the options
-    const sortedList: string[] = [...originalList].sort();
-    // sonar issue fix
-    //const sortedList: string[] = [...originalList].sort((a, b) => a.localeCompare(b));
-    console.log("Sorted list: " + sortedList);
+  // Extract all option text and trim whitespace
+  console.log(await options.allTextContents());
+  const optionText: string[] = (await options.allTextContents()).map((text) => text.trim());
+  console.log('Options in the drop down: ' + optionText);
 
-    // Assert that original list matches sorted list (options are sorted)
-    expect(originalList).toEqual(sortedList);
+  // Store the original list of options
+  const originalList: string[] = optionText;
+  console.log('Original list: ' + originalList);
+
+  // Create a new sorted copy of the options
+  const sortedList: string[] = [...originalList].sort();
+  // sonar issue fix
+  //const sortedList: string[] = [...originalList].sort((a, b) => a.localeCompare(b));
+  console.log('Sorted list: ' + sortedList);
+
+  // Assert that original list matches sorted list (options are sorted)
+  expect(originalList).toEqual(sortedList);
 });

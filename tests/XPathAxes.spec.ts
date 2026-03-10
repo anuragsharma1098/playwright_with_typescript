@@ -7,11 +7,11 @@ import { test, expect } from '@playwright/test';
 
 /**
  * Test Suite: XPath Axes Examples - Playwright TypeScript
- * 
+ *
  * Description:
  * Comprehensive tests for XPath axes, which are methods for navigating
  * the XML/HTML document tree. Axes define the relationship between nodes.
- * 
+ *
  * XPath Axes Include:
  * - child: Direct children of current node
  * - parent: Parent element of current node
@@ -81,7 +81,7 @@ test.describe('XPath Axes Examples - Playwright TypeScript', () => {
     const followingTab = page.locator(
       '//div[contains(@class, "mw-wiki-logo")]/following-sibling::*[1]'
     );
-    
+
     // Guard against missing nodes
     const count = await followingTab.count();
     if (count === 0) {
@@ -95,9 +95,7 @@ test.describe('XPath Axes Examples - Playwright TypeScript', () => {
 
   test('Preceding-Sibling Axis - Select preceding siblings only', async ({ page }) => {
     // Select only preceding siblings
-    const precedingElements = page.locator(
-      '//body/preceding-sibling::head'
-    );
+    const precedingElements = page.locator('//body/preceding-sibling::head');
     const count = await precedingElements.count();
     console.log(`Found ${count} preceding siblings`);
   });
@@ -127,7 +125,7 @@ test.describe('XPath Axes Examples - Playwright TypeScript', () => {
 
   test('Complex XPath - Combining multiple axes', async ({ page }) => {
     // Combine multiple axes to find specific elements
-    // Find inputs that are descendants of divs with specific class, 
+    // Find inputs that are descendants of divs with specific class,
     // whose parent is a form
     const complexPath = page.locator(
       '//div[@id="searchInput"]/ancestor::div/descendant::input[@type="search"]'
@@ -139,7 +137,7 @@ test.describe('XPath Axes Examples - Playwright TypeScript', () => {
   test('Practical Example - Navigate through page structure', async ({ page }) => {
     // Get the search input
     const searchInput = page.locator('//input[@id="searchInput"]');
-    
+
     // Navigate to its parent div (Wikipedia doesn't have a form parent for searchInput)
     const parentDiv = page.locator('//input[@id="searchInput"]/parent::div');
     const divClass = await parentDiv.getAttribute('class');
@@ -164,13 +162,13 @@ test.describe('XPath Axes Examples - Playwright TypeScript', () => {
 
     // Example: Select all cells in a row
     // Find a table cell, then select all following cells in same row
-    const rowCells = page.locator("//td[normalize-space()='Learn JS']/following-sibling::td")
+    const rowCells = page.locator("//td[normalize-space()='Learn JS']/following-sibling::td");
     const cellCount = await rowCells.count();
     console.log(`Cells following first data cell: ${cellCount}`);
 
     // Select parent row from a cell and count all td children
     const parentRow = page.locator("//td[normalize-space()='Learn JS']/parent::tr");
-    const rowChildCount = await parentRow.locator("//td").count();
+    const rowChildCount = await parentRow.locator('//td').count();
     console.log(`Total cells in parent row: ${rowChildCount}`);
   });
 });
