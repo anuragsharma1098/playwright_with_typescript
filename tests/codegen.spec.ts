@@ -12,7 +12,7 @@ npx playwright codegen --lang javascript|python|csharp|java  # Specify language
 
 # Browser & Device
 npx playwright codegen --browser chromium|firefox|webkit  # Specific browser
-npx playwright codegen --device "<device name>"  # Emulate specific device (iPhone 13, Pixel 5, etc.)
+npx playwright codegen --device "<device name>"  # Emulate specific device (iPhone 13,Pixel 5,etc.)
 
 # Viewport & Viewport
 npx playwright codegen --viewport-size=1920,1080 # Custom viewport dimensions
@@ -48,7 +48,7 @@ import { test, expect } from '@playwright/test';
 /**
  * Test: User login and shopping workflow
  *
- * Description: Records a complete user journey including login, 
+ * Description: Records a complete user journey including login,
  * product browsing, adding to cart, and logout
  */
 test('test', async ({ page }) => {
