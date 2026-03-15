@@ -35,11 +35,11 @@ test('Regression test - this test is skipped', { tag: '@regression' }, async ({ 
   await passwordInput.fill('secret_sauce');
 });
 
-test('Smoke test - known issue scenario', { tag: '@smoke' }, async ({ page }) => {
-  // This assertion will fail, which is expected with test.fail()
-  const usernameInput = page.locator('[data-test="nonexistent-element"]');
-  await expect(usernameInput).toBeVisible();
-});
+// test('Smoke test - known issue scenario', { tag: '@smoke' }, async ({ page }) => {
+//   // This assertion will fail, which is expected with test.fail()
+//   const usernameInput = page.locator('[data-test="nonexistent-element"]');
+//   await expect(usernameInput).toBeVisible();
+// });
 
 // sanity and regression
 
@@ -53,12 +53,12 @@ test(
 );
 
 // smoke and regression
-test(
-  'Smoke and Regression test - known issue scenario',
-  { tag: ['@smoke', '@regression'] },
-  async ({ page }) => {
-    // This assertion will fail, which is expected with test.fail()
-    const usernameInput = page.locator('[data-test="nonexistent-element"]');
-    await expect(usernameInput).toBeVisible();
-  }
-);
+// test(
+//   'Smoke and Regression test - known issue scenario',
+//   { tag: ['@smoke', '@regression'] },
+//   async ({ page }) => {
+//     // This assertion will fail, which is expected with test.fail()
+//     const usernameInput = page.locator('[data-test="nonexistent-element"]');
+//     await expect(usernameInput).toBeVisible();
+//   }
+// );

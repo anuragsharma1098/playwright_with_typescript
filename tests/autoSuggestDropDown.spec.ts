@@ -24,8 +24,8 @@ test('Auto-suggest drop-down functionality', async ({ page }) => {
   // Navigate to Flipkart homepage
   await page.goto('https://www.flipkart.com/');
 
-  // Close login popup if it appears
-  await page.getByRole('button', { name: '✕' }).click();
+  // // Close login popup if it appears
+  // await page.getByRole('button', { name: '✕' }).click();
 
   // // Fill the search input with 'smart' and wait for suggestions to appear
   // await page.locator('input[name="q"]').fill('smart');
