@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { before } from 'node:test';
 
 // test1 - sanity test
 // test2 - regression test
@@ -18,6 +19,9 @@ import { test, expect } from '@playwright/test';
   run either sanity or regression tests: npx playwright test --grep "@sanity|@regression"
   run either smoke or regression tests: npx playwright test --grep "@smoke|@regression"
 */
+test.beforeEach(async ({ page }) => {
+  await page.goto('https://www.saucedemo.com/');
+});
 
 test('Sanity test - runs normally', { tag: '@sanity' }, async ({ page }) => {
   const usernameInput = page.locator('[data-test="username"]');
