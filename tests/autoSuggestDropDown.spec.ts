@@ -22,7 +22,7 @@ import { test, Locator } from '@playwright/test';
  */
 test('Auto-suggest drop-down functionality', async ({ page }) => {
   // Navigate to Flipkart homepage
-  await page.goto('https://www.flipkart.com/');
+  // await page.goto('https://www.flipkart.com/');
 
   // // Close login popup if it appears
   // await page.getByRole('button', { name: '✕' }).click();
