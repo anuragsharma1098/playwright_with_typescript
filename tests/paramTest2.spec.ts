@@ -8,7 +8,7 @@ const loginTestData: string[][] = [
 ];
 
 test('Login Test', async ({ page }) => {
-  await page.goto('https://www.demowebshop.tricentis.com/login');
+  await page.goto('https://demowebshop.tricentis.com/login');
 
   //fill login form
   await page.locator('#Email').fill(email);
@@ -22,6 +22,6 @@ test('Login Test', async ({ page }) => {
     const errorMessage = page.locator('.validation-summary-errors');
     await expect(errorMessage).toBeVisible({ timeout: 5000 });
 
-    await expect(page).toHaveURL('https://www.demowebshop.tricentis.com/login');
+    await expect(page).toHaveURL('https://demowebshop.tricentis.com/login');
   }
 });
