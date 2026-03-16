@@ -76,6 +76,7 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      // fullyParallel: true, // Enable parallel execution for Chromium
     },
 
     // Uncomment to test on Firefox
