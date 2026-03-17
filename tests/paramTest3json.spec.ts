@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs';
 
-const jsonPath = "test-data/loginTestData.json";
+const jsonPath = 'test-data/loginTestData.json';
 
 const loginData: any = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
 // const loginTestData: [string, string, string][] = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
-for (const {email, password, validity} of loginData) {
+for (const { email, password, validity } of loginData) {
   test.describe('Login Tests', async () => {
     test(`Login test for ${email} - ${validity}`, async ({ page }) => {
       await page.goto('https://demowebshop.tricentis.com/login');
