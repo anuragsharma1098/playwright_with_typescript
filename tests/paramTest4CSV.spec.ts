@@ -9,7 +9,7 @@ import { parse } from 'csv-parse/sync';
 // Parse CSV data
 const csvPath = 'test-data/credentials_csv.csv';
 const csvData = fs.readFileSync(csvPath, 'utf-8');
-const loginData = parse(csvData, { columns: true, skip_empty_lines: true });
+const loginData:any = parse(csvData, { columns: true, skip_empty_lines: true });
 
 test.describe('Login Tests', async () => {
   for (const data of loginData) {
