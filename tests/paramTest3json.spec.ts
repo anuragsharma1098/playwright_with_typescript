@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs';
 
-const jsonPath = 'test-data/loginTestData.json';
+const jsonPath = './test-data/loginTestData.json';
 
 const loginData: any = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 

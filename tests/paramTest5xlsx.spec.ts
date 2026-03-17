@@ -7,7 +7,7 @@ import * as XLSX from 'xlsx';
 // npm install xlsx
 
 // Parse Excel data
-const excelPath = 'test-data/credentials.xlsx';
+const excelPath = './test-data/credentials.xlsx';
 const workbook = XLSX.readFile(excelPath);
 const sheetName = workbook.SheetNames[0];
 const worksheet = workbook.Sheets[sheetName];

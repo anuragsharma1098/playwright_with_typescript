@@ -7,7 +7,7 @@ import { parse } from 'csv-parse/sync';
 // npm install csv-parse
 
 // Parse CSV data
-const csvPath = 'test-data/credentials_csv.csv';
+const csvPath = './test-data/credentials_csv.csv';
 const csvData = fs.readFileSync(csvPath, 'utf-8');
 const loginData:any = parse(csvData, { columns: true, skip_empty_lines: true });
 
