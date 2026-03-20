@@ -7,9 +7,6 @@ import { before, beforeEach } from 'node:test';
 // To generate allure report: npx allure generate --clean
 // To open allure report: npx allure open
 
-test.beforeEach(() => {
-  console.log('before each test');
-});
 test('reporter test', async ({ page }) => {
   await page.goto('https://playwright.dev/');
   const title = await page.title();
