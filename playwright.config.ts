@@ -40,8 +40,13 @@ export default defineConfig({
 
   /* Reporter configuration - JUnit and HTML reports for all environments */
   reporter: [
+    ['list'], // Default console reporter
     ['junit', { outputFile: 'test-results/junit-report.xml' }],
     ['html', { outputFolder: 'playwright-report' }],
+    ['json', { outputFile: 'test-results/json-report.json' }],
+    ['line'],
+    ['dot'],
+    ['allure-playwright', { outputFolder: 'allure-results' }], // Allure reporter for detailed test reports
   ],
 
   /* Shared settings for all the test projects below. */
