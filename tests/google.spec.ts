@@ -23,5 +23,5 @@ test('Google Homepage', async ({ page }) => {
   await expect(page).toHaveTitle(/Google/);
   await expect(page).toHaveURL('https://www.google.com/');
 
-  // console.log('Google homepage loaded successfully with correct title and URL.');
+  // console.log('Google homepage loaded successfully with correct title and URL.'); 
 });
