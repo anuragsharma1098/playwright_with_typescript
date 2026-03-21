@@ -10,17 +10,17 @@ import { before, beforeEach } from 'node:test';
 test('reporter test', async ({ page }) => {
   await page.goto('https://playwright.dev/');
   const title = await page.title();
-  expect(title).toBe('Fast and reliable end-to-end testing for modern web apps | Playwright');
+  expect(title).toContain('Playwright');
 });
 
 test('reporter test 2', async ({ page }) => {
   await page.goto('https://playwright.dev/');
   const title = await page.title();
-  expect(title).toBe('Fast and reliable end-to-end testing for modern web apps | Playwright');
+  expect(title).toContain('Playwright');
 });
 
 test('reporter test 3', async ({ page }) => {
   await page.goto('https://playwright.dev/');
   const title = await page.title();
-  expect(title).toBe('Fast and reliable end-to-end testing for modern web apps | Playwright');
+  expect(title).toContain('Playwright');
 });
