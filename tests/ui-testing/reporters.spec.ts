@@ -5,7 +5,7 @@ import { before, beforeEach } from 'node:test';
 // Allure cmd line: npm install -D allure-commandline
 // Pre-requisite: npm install -D allure-playwright
 // To generate allure report: npx allure generate --clean
-// To open allure report: npx allure open
+// To open allure report: npx allure open 
 
 test('reporter test', async ({ page }) => {
   await page.goto('https://playwright.dev/');
