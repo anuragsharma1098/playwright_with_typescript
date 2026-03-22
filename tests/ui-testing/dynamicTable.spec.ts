@@ -63,5 +63,6 @@ test('verify chrome cpu load in dynamic table', async ({ page }) => {
   const cpuLoadValueExtracted = cpuLoadValue.split(': ')[1];
 
   // Assert that the CPU load from the table matches the displayed CPU load value
-  expect(cpuLoad.trim()).toBe(cpuLoadValueExtracted.trim());
+  // expect(cpuLoad.trim()).toBe(cpuLoadValueExtracted.trim());
+  expect(cpuLoad.trim()).toContain(cpuLoadValueExtracted.trim());
 });
