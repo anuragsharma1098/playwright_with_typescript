@@ -4,6 +4,7 @@ test('GET request to API endpoint', async ({ request }) => {
   const response = await request.get('https://jsonplaceholder.typicode.com/posts/1');
   expect(response.status()).toBe(200);
   const data = await response.json();
+  console.log(data);
   expect(data).toHaveProperty('id', 1);
 });
 
@@ -17,6 +18,7 @@ test('POST request to API endpoint', async ({ request }) => {
   });
   expect(response.status()).toBe(201);
   const data = await response.json();
+  console.log(data);
   expect(data).toHaveProperty('id');
   expect(data).toHaveProperty('title', 'foo');
   expect(data).toHaveProperty('body', 'bar');
@@ -34,6 +36,7 @@ test('PUT request to API endpoint', async ({ request }) => {
   });
   expect(response.status()).toBe(200);
   const data = await response.json();
+  console.log(data);
   expect(data).toHaveProperty('id', 1);
   expect(data).toHaveProperty('title', 'updated title');
   expect(data).toHaveProperty('body', 'updated body');
@@ -42,5 +45,6 @@ test('PUT request to API endpoint', async ({ request }) => {
 
 test('DELETE request to API endpoint', async ({ request }) => {
   const response = await request.delete('https://jsonplaceholder.typicode.com/posts/1');
+  console.log(response.status());
   expect(response.status()).toBe(200);
 });
