@@ -14,7 +14,7 @@ test('POST request to API endpoint', async ({ request }) => {
       body: 'bar',
       userId: 1,
     },
-  });
+  }); 
   expect(response.status()).toBe(201);
   const data = await response.json();
   expect(data).toHaveProperty('id');
