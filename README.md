@@ -2,7 +2,7 @@
 
 A test automation project using Playwright and TypeScript for end-to-end testing.
 
-## Prerequisites
+## Prerequisites 
 
 Before running the tests, ensure you have the following installed:
 
@@ -17,13 +17,11 @@ Before running the tests, ensure you have the following installed:
    git clone <repository-url>
    cd playwright_with_typescript
    ```
-
 2. **Install dependencies:**
 
    ```bash
    npm install
    ```
-
 3. **Install Playwright browsers:**
 
    ```bash
