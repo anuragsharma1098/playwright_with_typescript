@@ -15,7 +15,7 @@ import { test, Locator } from '@playwright/test';
  *
  * Test Steps:
  * 1. Navigate to test automation practice website
- * 2. Loop 5 times to repeatedly click the dynamic button
+ * 2. Loop 5 times to repeatedly click the dynamic button  
  * 3. Button toggles between START and STOP states
  * 4. Wait 2 seconds between clicks to observe state changes
  *
