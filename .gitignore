@@ -10,3 +10,4 @@ node_modules/
 /traces/
 /allure-results/
 /allure-report/
+.devcontainer/devcontainer-lock.json
