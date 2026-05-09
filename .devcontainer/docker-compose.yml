@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  playwright:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    image: playwright-typescript:latest
+    container_name: playwright-dev
+    volumes:
+      - ..:/workspace
+      - /workspace/node_modules
+      - ~/.ssh:/home/node/.ssh:ro
+    working_dir: /workspace
+    command: /bin/bash -c "while sleep 1000; do :; done"
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "3000:3000"
