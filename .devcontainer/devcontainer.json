@@ -29,5 +29,5 @@
     }
   },
   "postCreateCommand": "npm install && npx playwright install",
-  "remoteUser": "node"
+  "remoteUser": "pwuser"
 }

@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /workspace
 
-# Use the existing node user from the base image
-USER node
+# Use the existing Playwright image user from the base image
+USER pwuser
 
 # Expose port for dev server if needed
 EXPOSE 3000
