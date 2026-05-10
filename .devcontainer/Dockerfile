@@ -1,5 +1,4 @@
-FROM mcr.microsoft.com/playwright:bookworm
-
+FROM mcr.microsoft.com/playwright:v1.59.1-noble
 # Install additional useful tools
 RUN apt-get update && apt-get install -y \
     git \
