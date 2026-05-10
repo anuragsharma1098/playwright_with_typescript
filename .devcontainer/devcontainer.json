@@ -12,7 +12,6 @@
         "ms-playwright.playwright",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "GitHub.copilot",
         "eamodio.gitlens"
       ],
       "settings": {
@@ -21,10 +20,7 @@
         "[typescript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
-        "eslint.validate": [
-          "javascript",
-          "typescript"
-        ]
+        "eslint.validate": ["javascript", "typescript"]
       }
     }
   },
