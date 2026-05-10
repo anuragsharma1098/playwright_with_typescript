@@ -53,7 +53,7 @@ export default defineConfig({
   /* See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Show browser UI instead of running headless */
-    headless: !!process.env.CI,
+    headless: !!process.env.CI || true,
 
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
