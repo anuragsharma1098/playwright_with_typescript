@@ -13,7 +13,7 @@ import { test, expect } from '@playwright/test';
 test('should assert with auto-retry on website elements', async ({ page }) => {
   await page.goto('https://the-internet.herokuapp.com');
 
-  // Auto-retry assertions - wait up to 5000ms by default
+  // Auto-retry assertions - wait up to 5000ms by default     
   // These will automatically retry if element is not ready
   expect(page.locator('h1')).toBeVisible();
   expect(page.locator('a:has-text("A/B Testing")')).toBeVisible();
