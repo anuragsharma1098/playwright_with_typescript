@@ -20,7 +20,7 @@ import { test, expect } from '@playwright/test';
  * EXPECTED RESULT:
  * Both check-in (May 10) and check-out (May 28) dates are selected
  * in the date range picker.
- *
+ *              
  * CUSTOMIZATION:
  * To use different dates, modify the date regex patterns:
  * - For check-in: Change /10 May/ to /[day] [month]/
