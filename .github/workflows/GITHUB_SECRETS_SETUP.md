@@ -38,8 +38,8 @@ This guide explains how to set up email notifications for Playwright test result
 4. Click **New repository secret**
 5. Add each secret one by one:
 
-| Name              | Value                          | Example                     |
-| ----------------- | ------------------------------ | --------------------------- |
+| Name                | Value                          | Example                       |
+| ------------------- | ------------------------------ | ----------------------------- |
 | `SMTP_SERVER`     | Email provider's SMTP server   | `smtp.gmail.com`            |
 | `SMTP_PORT`       | SMTP port (usually 465 or 587) | `465`                       |
 | `SMTP_USERNAME`   | Email address                  | `your-email@gmail.com`      |
@@ -75,13 +75,13 @@ git push
 
 ## Common Issues & Solutions
 
-| Issue                     | Solution                                                                                           |
-| ------------------------- | -------------------------------------------------------------------------------------------------- |
-| "Authentication failed"   | Use [App Password](https://myaccount.google.com/apppasswords) for Gmail, not your regular password |
-| Email not received        | Check spam/junk folder, verify `EMAIL_RECIPIENT` is correct                                        |
-| Workflow fails            | Check the **Actions** tab logs for detailed error messages                                         |
-| 2FA not enabled for Gmail | Gmail requires 2FA enabled before App Passwords work                                               |
-| Port 587 vs 465           | Use 465 for SSL (Gmail), 587 for TLS (Outlook)                                                     |
+| Issue                     | Solution                                                                                       |
+| ------------------------- | ---------------------------------------------------------------------------------------------- |
+| "Authentication failed"   | Use[App Password](https://myaccount.google.com/apppasswords) for Gmail, not your regular password |
+| Email not received        | Check spam/junk folder, verify `EMAIL_RECIPIENT` is correct                                  |
+| Workflow fails            | Check the**Actions** tab logs for detailed error messages                                |
+| 2FA not enabled for Gmail | Gmail requires 2FA enabled before App Passwords work                                           |
+| Port 587 vs 465           | Use 465 for SSL (Gmail), 587 for TLS (Outlook)                                                 |
 
 ---
 
