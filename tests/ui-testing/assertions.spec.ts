@@ -6,7 +6,7 @@ import { test, expect } from '@playwright/test';
  * Demonstrates various Playwright assertion patterns including
  * auto-retry, soft/non-retry, negating-match, and combinations.
  * Each test includes explicit documentation of its intent,
- * steps, and expected behaviour.
+ * steps, and expected behaviour.  
  */
 
 // ===== Website Assertions with Auto-Retry =====
