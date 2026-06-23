@@ -10,7 +10,7 @@
  *   - snapshots: true - Captures DOM snapshots to reconstruct page state
  *   - sources: true - Records JavaScript source files (optional)
  * - context.tracing.stop({ path }): Stops tracing and saves data to a zip file
- * - Traces are used for:
+ * - Traces are used for:  
  *   - Post-test debugging and analysis
  *   - Understanding test failures with visual and DOM context
  *   - Performance analysis and optimization
