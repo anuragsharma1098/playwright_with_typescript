@@ -23,6 +23,7 @@ import { test, expect, Locator } from '@playwright/test';
  * 4. Locate elements with contains() function
  * 5. Count and display elements
  * 6. Extract individual and bulk element content
+ *
  */
 test('XPath demo in playwright', async ({ page }) => {
   // Navigate to tutorial ninja demo website
